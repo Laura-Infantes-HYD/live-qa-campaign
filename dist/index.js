@@ -1,0 +1,1 @@
+(()=>{var t,e,c,n,o=function(t){var e=new Date,c=24*t*60*60*1e3,n=e.getTime()+c;return e.setTime(n),"; expires=".concat(e.toUTCString())};t=window.location.href.match(/(?<=HYD_QA=true&)(.*?)(?==true)/)[0],e=t,n=(c=12)?o(c):"",document.cookie="".concat(e,"=true").concat(n,'; path=/"')})();
