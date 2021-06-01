@@ -5,16 +5,18 @@
 
 
  const setQACookie = () => {
-    const testNameRegex = /(?<=HYD_QA=true&)(.*?)(?==true)/
+    const testNameRegex = /(?<=hyd_qa=true&|HYD_QA=true&)(.*?)(?==true)/
     const href = window.location.href
-    const testName = href.match(testNameRegex)[0]
+    const testName = href.match(testNameRegex, "i")[0]
 
     setCookie(testName, 12)
 }
 
 const setCookie = (name, days) => {
     const expires = days ? calculateCookieExpiryDate(days) : "";
-    document.cookie = `${name}=true${expires}; path=/"`
+    const cookie = `${name}=true${expires}; path=/`
+
+    document.cookie = cookie
 }
 
 const calculateCookieExpiryDate = (days) => {
