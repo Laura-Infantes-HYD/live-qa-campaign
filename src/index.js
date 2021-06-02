@@ -1,9 +1,3 @@
-/**
- * 
- */
-
-
-
  const setQACookie = () => {
     const testNameRegex = /(?<=hyd_qa=true&|HYD_QA=true&)(.*?)(?==true)/
     const href = window.location.href
