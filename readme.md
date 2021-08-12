@@ -12,6 +12,13 @@
     swapped for the test id) to the test url that we wish to live preview.
 
 
+## With multiple tests
+
+    To preview multiple tests simultaneously use the following url pattern: 
+    
+    https://clientsite.com/?HYD_QA=true&CS001=true&CS002=true&CS005=true
+    
+
 ## Install
 ```bash
 npm i
