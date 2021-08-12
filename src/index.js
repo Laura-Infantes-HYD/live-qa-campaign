@@ -1,12 +1,21 @@
- const setQACookie = () => {
-    const testNameRegex = /(?<=hyd_qa=true&|HYD_QA=true&)(.*?)(?==true)/
-    const href = window.location.href
-    const testName = href.match(testNameRegex, "i")[0]
 
-    setCookie(testName, 12)
+const init = () => {
+    const href = window.location.href
+    const isPreviewLinkRegex = /(hyd_qa=true&|HYD_QA=true&)/
+    const isPreviewLinks = isPreviewLinkRegex.test(href)
+
+    //Check for 
+    if(!isPreviewLinks)return
+    
+    const testNameRegex = /(?<=&)(.*?)(?==true)/g
+    const testNames = href.match(testNameRegex)
+
+    testNames.forEach(setCookie)
 }
 
-const setCookie = (name, days) => {
+
+//Utils
+const setCookie = (name, days=5) => {
     const expires = days ? calculateCookieExpiryDate(days) : "";
     const cookie = `${name}=true${expires}; path=/`
 
@@ -25,4 +34,6 @@ const calculateCookieExpiryDate = (days) => {
     return expiryString
 }
 
-setQACookie()
+
+
+init()
